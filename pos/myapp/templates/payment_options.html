@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Options</title>
+</head>
+<body>
+    <h1>Payment Options</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+          <input type="radio" name="payment_option" value="card" id="card">
+          <label for="card">Card Payment</label>
+        </div>
+        <div>
+          <input type="radio" name="payment_option" value="cash" id="cash">
+          <label for="cash">Cash Payment</label>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      
+
+</body>
+</html>

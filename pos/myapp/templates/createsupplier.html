@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Supplier</title>
+</head>
+<style>
+   .supplierform {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;margin-left: 500px;
+}
+.supplierform input, .storeform textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.supplierform form {
+  display: flex;
+  flex-direction: column;
+}
+body button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #3d405b;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 17px;
+      padding: 16px;
+      width: 130px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+    
+    body {
+      background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
+      height: 100vh;
+      width: 100vw;
+    } 
+    
+    .card {
+      width: 254px;
+      height: 130px;
+      background: rgb(40, 40, 55);
+      background: linear-gradient(344deg, rgba(40, 40, 55, 1) 0%, rgba(16, 16, 18, 1) 50%);
+      border-radius: 3px;
+      color: #F9F9F9;
+      padding: 16px;
+      transition: all .3s;
+    }
+</style>
+<body>
+    <div class="supplierform">
+    <h1>Create Supplier</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="name">Name:</label>
+      <input type="text" name="name" required><br><br>
+      <label for="email">Email:</label>
+      <input type="email" name="email" required><br><br>
+      <label for="phone">Phone:</label>
+      <input type="tel" name="phone" required><br><br>
+      <button type="submit">Save</button>
+    </form>
+    </div>
+    <br>
+    <a href="{% url 'supplierdetail' %}">
+      <div class="card">
+        <h1>Suppliers Detail</Details>
+        </h1>
+      </div>
+    </a>
+</body>
+</html>

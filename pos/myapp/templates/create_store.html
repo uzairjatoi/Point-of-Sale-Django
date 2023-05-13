@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Create Store</title>
+</head>
+
+<body>
+  <style>
+    .storeform {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      margin-left: 500px;
+    }
+
+    .storeform input,
+    .storeform textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .storeform form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    body button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #3d405b;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 17px;
+      padding: 16px;
+      width: 130px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    body {
+      background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .card {
+      width: 254px;
+      height: 130px;
+      background: rgb(40, 40, 55);
+      background: linear-gradient(344deg, rgba(40, 40, 55, 1) 0%, rgba(16, 16, 18, 1) 50%);
+      border-radius: 3px;
+      color: #F9F9F9;
+      padding: 16px;
+      transition: all .3s;
+    }
+    .cards {
+
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 6.5rem;
+margin-top: 20px;
+margin-left: 100px;
+margin-right: 50px;
+}
+  </style>
+  <div class="storeform">
+    <h1>Create Store</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required><br><br>
+      <button type="submit">Create</button>
+    </form>
+  </div>
+  <br>
+  <div class="cards">
+    <a href="{% url 'store_list' %}">
+      <div class="card">
+        <h1>Stores Detail</Details>
+        </h1>
+      </div>
+    </a>
+    <a href="{% url 'update_store' %}">
+      <div class="card">
+        <h1>Update Store</Details>
+        </h1>
+      </div>
+    </a>
+    <a href="{% url 'delete_store' %}">
+      <div class="card">
+        <h1>Delete Store</Details>
+        </h1>
+      </div>
+    </a>
+  </div>
+</body>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <style>
+        section {
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6.5rem;
+            margin-top: 20px;
+            margin-left: 100px;
+            margin-right: 50px;
+        }
+
+        section h1 {
+            font-family: 'Bebas Neue', cursive;
+
+        }
+
+        body {
+            background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
+        }
+        body>h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+        }
+
+        .card {
+            width: 190px;
+            height: 254px;
+            background: rgb(40, 40, 55);
+            background: linear-gradient(344deg, rgba(40, 40, 55, 1) 0%, rgba(16, 16, 18, 1) 50%);
+            border-radius: 3px;
+            color: #F9F9F9;
+            padding: 16px;
+            transition: all .3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+    <h1>Welcome to the Point of Sale</h1>
+    {{request.user}}
+    <section>
+
+        <a href="{% url 'createsale' %}"><div class="card">
+            <h1>Sale</h1>
+        </div></a>
+        <a href="{% url 'createproduct' %}"><div class="card">
+            <h1>Products</h1>
+        </div></a>
+        <a href="{% url 'createcustomer' %}"><div class="card">
+            <h1>Customers</h1></div></a>
+
+    
+        <a href="{% url 'createsupplier' %}"><div class="card">
+            <h1>Supplier</h1>
+
+        </div></a>
+        <a href="{% url 'create_inventory' %}"><div class="card">
+            <h1>Inventory</h1>
+
+        </div></a>
+        <a href="{% url 'createstore' %}"><div class="card">
+            <h1>Store</h1>
+
+        </div></a>
+
+    </section>
+</body>
+
+</html>

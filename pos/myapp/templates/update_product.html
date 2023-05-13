@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+</head>
+<body>
+    <style>
+        body {
+        background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
+        height: 150vh;
+        width: 100vw;
+      } 
+      .updateproductform {
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin-left: 500px;
+  
+      } 
+     .updateproductform select, .storeform textarea, .updateproductform input{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    /* margin-bottom: 20px; */
+  }
+  .updateproductform form {
+    display: flex;
+    flex-direction: column;
+  }
+  body button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #3d405b;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 17px;
+        padding: 16px;
+        width: 130px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+      }
+      </style>
+    
+    <div class="updateproductform">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Update Product</h1>
+        <label for="product_id">Select product:</label>
+        <select name="product_id" id="product_id">
+          {% for product in products %}
+          <option value="{{ product.id }}">{{ product.name }}</option>
+          {% endfor %}
+        </select>
+        <br>
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ product.name }}"><br><br>
+        <label for="description">Description:</label>
+        <textarea name="description">{{ product.description }}</textarea><br><br>
+        <label for="brand">Brand:</label>
+        <input type="text" name="brand" value="{{ product.brand }}"><br><br>
+        <label for="category">Category:</label>
+        <input type="text" name="category" value="{{ product.category }}"><br><br>
+        <label for="sub_category">Sub Category:</label>
+        <input type="text" name="sub_category" value="{{ product.sub_category }}"><br><br>
+        <label for="image">Image:</label>
+        <input type="file" name="image"><br><br>
+        <label for="price">Price:</label>
+        <input type="text" name="price" value="{{ product.price }}"><br><br>
+        <label for="cost">Cost:</label>
+        <input type="text" name="cost" value="{{ product.cost }}"><br><br>
+        <label for="supplier_name">Supplier:</label>
+        <select name="supplier_name">
+            {% for supplier in suppliers %}
+                <option value="{{ supplier.name }}" {% if supplier == product.supplier %}selected{% endif %}>{{ supplier.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        <button type="submit">Update</button> 
+    </form>
+    </div>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Customer</title>
+</head>
+<body>
+	<style>
+		   .updatecustomerform {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;margin-left: 500px;
+}
+.updatestoreform form {
+  display: flex;
+  flex-direction: column;
+}
+body button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #3d405b;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 17px;
+      padding: 16px;
+      width: 130px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+    
+    body {
+      background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
+      height: 100vh;
+      width: 100vw;
+    }
+	.updatecustomerform input, .updatecustomerform select {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+} 
+	</style>
+	<div class="updatecustomerform">
+		<h1>Update Customer</h1>
+		<form method="POST">
+			{% csrf_token %}
+			<select name="customer_id">
+				{% for customer in customers %}
+				<option value="{{ customer.id }}">{{ customer.name }}</option>
+				{% endfor %}
+			</select>
+			<input type="text" name="name" placeholder="Name"><br><br>
+			<input type="email" name="email" placeholder="Email"><br><br>
+			<input type="text" name="phone" placeholder="Phone"><br><br>
+			<button type="submit">Update</button>
+		</form>
+	</div>
+</body>
+</html>

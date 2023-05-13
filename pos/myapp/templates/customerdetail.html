@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Create Customer</title>
+</head>
+
+<body>
+  <style>
+    .supplier-list {
+        font-family: Arial, sans-serif;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2em;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    body {
+        background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
+        height: 100vh;
+        width: 100vw;
+    }
+</style>
+  <div class="customer-list">
+    <h1>Customer Detail</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer in customers %}
+        <tr>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.email }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="3">No customers found.</td>
+        </tr>
+        {% endfor %}
+  </div>
+</body>
+
+</html>
